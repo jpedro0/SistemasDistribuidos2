@@ -9,18 +9,22 @@
     <div class="row">
         @foreach (var produto in Model)
         {
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4" style="border: solid 1px black;">
                 <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">@produto.Descricao</a>
-                        </h4>
-                        <h5>@string.Format("{0:C2}", produto.Preco)</h5>
-                        <p class="card-text">@produto.Descricao</p>
-                    </div>
-                    <div class="card-footer">
-                        <a class="btn btn-success" href="/Carrinho/Adicionar/@produto.Id"> Adicionar ao Carrinho</a>
-                    </div>
+                    <form action="/Carrinho/Adicionar" method="post">
+                        <input hidden name="Id" value="@produto.Id" />
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                @produto.Descricao
+                            </h4>
+                            <h5>@string.Format("{0:C2}", produto.Preco)</h5>
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade" class="form-control" />
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success"> Adicionar ao Carrinho</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         }

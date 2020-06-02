@@ -1,5 +1,4 @@
 ﻿using Loja.Daos;
-using Loja.Services;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 

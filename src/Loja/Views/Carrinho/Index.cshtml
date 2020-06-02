@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Loja.Models.Produto>
+
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Descrição </th>
+                <th> Valor </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produto in Model)
+            {
+                <tr>
+                    <td>@produto.Descricao</td>
+                    <td>@string.Format("{0:C2}", produto.Preco)</td>
+                    <td><a href="/Carrinho/Remover/@produto.Id" class="btn btn-danger">Remover</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Pedidos/FazerPedido" class="btn btn-primary">Fazer Pedido</a>
+}

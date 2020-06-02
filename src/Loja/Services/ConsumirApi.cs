@@ -27,7 +27,7 @@ namespace Loja.Services
 
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            await httpClient.PostAsync(url, data);
+            await httpClient.PostAsync(uri.AbsoluteUri + url, data);
         }
     }
 }
