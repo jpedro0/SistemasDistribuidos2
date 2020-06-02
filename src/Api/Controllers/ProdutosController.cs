@@ -13,7 +13,7 @@ namespace Api.Controllers
             try
             {
                 var produtos = await new ProdutosDao().Listar();
-                return Ok(new { produtos });
+                return Ok(produtos);
             }
             catch (Exception ex)
             {
