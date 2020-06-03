@@ -10,7 +10,7 @@ namespace Loja.Controllers
     {
         public async Task<ActionResult> Index()
         {
-            var produtos = await new ProdutosDao().ListarProdutos();
+            var produtos = await new ProdutosDao().Listar();
             var produtosDoCarrinho = produtos.Where(x => CarrinhoService.ObterIds().Contains(x.Id));
             return View(produtosDoCarrinho);
         }

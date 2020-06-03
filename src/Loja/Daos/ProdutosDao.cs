@@ -7,7 +7,7 @@ namespace Loja.Daos
 {
     public class ProdutosDao
     {
-        public async Task<IEnumerable<Produto>> ListarProdutos() =>
+        public async Task<IEnumerable<Produto>> Listar() =>
             await ConsumirApi.Get<IEnumerable<Produto>>("api/Produtos");
     }
 }

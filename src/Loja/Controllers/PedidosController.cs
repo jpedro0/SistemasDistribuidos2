@@ -9,6 +9,20 @@ namespace Loja.Controllers
 {
     public class PedidosController : Controller
     {
+        public async Task<ActionResult> Index()
+        {
+            var pedidos = await new PedidosDao().Listar();
+
+            return View(pedidos);
+        }
+
+        public async Task<ActionResult> Detalhes(int id)
+        {
+            var pedidos = await new PedidosDao().Buscar(id);
+
+            return View(pedidos);
+        }
+
         public async Task<ActionResult> FazerPedido()
         {
             var pedido = new Pedido

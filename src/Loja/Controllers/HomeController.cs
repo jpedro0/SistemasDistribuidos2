@@ -8,7 +8,7 @@ namespace Loja.Controllers
     {
         public async Task<ActionResult> Index()
         {
-            var produtos = await new ProdutosDao().ListarProdutos();
+            var produtos = await new ProdutosDao().Listar();
             return View(produtos);
         }
 

@@ -16,5 +16,6 @@
         public Pedido Pedido { get; set; }
 
         public int Quantidade { get; set; }
+        public string Descricao { get; set; }
     }
 }

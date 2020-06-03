@@ -1,0 +1,26 @@
+﻿@model Loja.Models.Pedido
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Descrição </th>
+            <th> Quantidade </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ItensDoPedido != null && Model.ItensDoPedido.Any())
+        {
+            @foreach (var pedido in Model.ItensDoPedido)
+            {
+                <tr>
+                    <td>@pedido.Descricao</td>
+                    <td>@pedido.Quantidade</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

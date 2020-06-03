@@ -41,7 +41,7 @@ namespace Api.Controllers
                 {
                     x.ProdutoId,
                     x.Quantidade,
-                    x.Produto.Descricao
+                    x.Produto?.Descricao
                 }).ToList()
             });
         }

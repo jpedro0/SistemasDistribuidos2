@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Loja.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Data </th>
+                <th> Quantidade de Itens </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pedido in Model)
+            {
+                <tr>
+                    <td>@pedido.Data</td>
+                    <td>@pedido.ItensDoPedido.Count()</td>
+                    <td><a href="/Pedidos/Detalhes/@pedido.Id" class="btn btn-danger">Detalhes</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
