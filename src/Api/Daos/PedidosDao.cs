@@ -1,5 +1,7 @@
 ﻿using Api.Contextos;
 using Api.Models;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +14,14 @@ namespace Api.Daos
         public PedidosDao()
         {
             this.contexto = new ApiContexto();
+        }
+
+        public async Task<IEnumerable<Pedido>> Listar() =>
+            await this.contexto.Pedidos.ToListAsync();
+
+        public async Task<Pedido> Buscar(int id)
+        {
+            return await this.contexto.Pedidos.Include(x => x.ItensDoPedido).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task Salvar(Pedido pedido)

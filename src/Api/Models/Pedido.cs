@@ -7,6 +7,6 @@ namespace Api.Models
     {
         public int Id { get; set; }
         public DateTime Data { get; set; } = DateTime.Now;
-        public IEnumerable<ItensDoPedido> ItensDoPedido { get; set; }
+        public virtual ICollection<ItensDoPedido> ItensDoPedido { get; set; }
     }
 }
